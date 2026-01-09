@@ -27,25 +27,39 @@ alias XcodeNativePython="vim /Applications/Xcode.app/Contents/Developer/Library/
 ###########
 # EXPORTS #
 ###########
+
+export PATH="/bin:~/.local/bin:/opt/bin:/usr/bin:/usr/local/bin:/sbin:~/.local/sbin:/opt/sbin:/usr/sbin:/usr/local/sbin"
+
 export PS1='%F{green}%n@%m%f:%F{blue}%~%f %# '
 
 # Homebrew:
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # YubiKey CLI Tool (local only)
-export PATH="/Applications/YubiKey Manager.app/Contents/MacOS:$PATH"
+#export PATH="$PATH:/Applications/YubiKey Manager.app/Contents/MacOS"
 
 # Export Manual Pages for Xcode
-export MANPATH="/Applications/Xcode.app/Contents/Developer/usr/share/man:$MANPATH"
+export MANPATH="$MANPATH:/Applications/Xcode.app/Contents/Developer/usr/share/man"
+export MANPATH="$MANPATH:/Library/Developer/CommandLineTools/usr/share/man"
 
 # Export Binaries from Xcode
-export PATH="/Applications/Xcode.app/Contents/Developer/usr/bin:$PATH"
+export PATH="$PATH:/Applications/Xcode.app/Contents/Developer/usr/bin"
 
 # Added by OrbStack: command-line tools and integration. This won't be added again if you remove it.
 source ~/.orbstack/shell/init.bash 2>/dev/null || :
 
 # MacPorts Installer addition on 2025-11-15_at_21:20:30: adding an appropriate PATH variable for use with MacPorts.
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+#export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+
+# CommandLineTools
+export PATH="$PATH:/Library/Developer/CommandLineTools/usr/bin"
+
+# LibExeTools
+export PATH"$PATH:/usr/libexec"
+export PATH="$PATH:/Library/Dev*/CommandLineTools/usr/libexec"
+
+# WARNING: The following path includes binaries outside the Cocoa/Darwin ecosystem/api standard.
+export PATH="$PATH/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/bin"
 
 #       <--DISABLED-->
 #       export SSH_AUTH_SOCK="/Users/d3ad/.bitwarden-ssh-agent.sock"
